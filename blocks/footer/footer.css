@@ -4,7 +4,9 @@ footer {
   font-size: var(--body-font-size-s);
   color: #ffffff;
 }
-
+.footer.block p {
+    line-height: 35px;
+}
 footer .footer {
   max-width: 1200px;
   margin: auto;
