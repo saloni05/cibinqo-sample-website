@@ -597,7 +597,7 @@ export function loadFooter(footer) {
  */
 export function loadpreFooter(prefooter) {
   const prefooterBlock = buildBlock('prefooter', '');
-  prefooter.append(prefooterBlock);
+  footer.append(prefooterBlock);
   decorateBlock(prefooterBlock);
   return loadBlock(prefooterBlock);
 }
