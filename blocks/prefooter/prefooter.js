@@ -9,17 +9,17 @@ export default async function decorate(block) {
   block.textContent = '';
 
   // fetch footer content
-  const footerPath = cfg.footer || '/pre-footer';
-  const resp = await fetch(`${footerPath}.plain.html`, window.location.pathname.endsWith('/pre-footer') ? { cache: 'reload' } : {});
+  const prefooterPath = cfg.prefooter || '/prefooter';
+  const resp = await fetch(`${prefooterPath}.plain.html`, window.location.pathname.endsWith('/prefooter') ? { cache: 'reload' } : {});
 
   if (resp.ok) {
     const html = await resp.text();
 
     // decorate footer DOM
-    const footer = document.createElement('div');
-    footer.innerHTML = html;
+    const prefooter = document.createElement('div');
+    prefooter.innerHTML = html;
 
-    decorateIcons(footer);
-    block.append(footer);
+    decorateIcons(prefooter);
+    block.append(prefooter);
   }
 }
