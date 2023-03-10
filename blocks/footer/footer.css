@@ -5,7 +5,7 @@ footer {
   color: #ffffff;
 }
 .footer.block p {
-    line-height: 35px;
+    line-height: 30px;
 }
 footer .footer {
   max-width: 1200px;
@@ -24,4 +24,10 @@ footer .footer p {
 }
 footer .columns >div >div:first-child {
     border-right: 1px solid #ffffff;
+}
+.footer .columns a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: underline;
+    line-height: 42px;
 }
