@@ -594,13 +594,13 @@ export function loadFooter(footer) {
  * Loads a block named 'prefooter' into prefooter
  * @param prefooter prefooter element
  * @returns {Promise}
- */
+ *
 export function loadpreFooter(prefooter) {
   const prefooterBlock = buildBlock('prefooter', '');
-  footer.append(prefooterBlock);
+  prefooter.append(prefooterBlock);
   decorateBlock(prefooterBlock);
   return loadBlock(prefooterBlock);
-}
+} */
 
 /**
  * Setup block utils.
