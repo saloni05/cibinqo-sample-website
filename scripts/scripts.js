@@ -2,7 +2,6 @@ import {
   sampleRUM,
   buildBlock,
   loadHeader,
-  loadpreFooter,
   loadFooter,
   decorateButtons,
   decorateIcons,
@@ -103,7 +102,7 @@ async function loadLazy(doc) {
   if (hash && element) element.scrollIntoView();
 
   loadHeader(doc.querySelector('header'));
-  loadpreFooter(doc.querySelector('prefooter'));
+ // loadpreFooter(doc.querySelector('prefooter'));
   loadFooter(doc.querySelector('footer'));
   
 
