@@ -31,3 +31,7 @@ footer .columns >div >div:first-child {
     text-decoration: underline;
     line-height: 42px;
 }
+.footer img {
+    width: 90px;
+    height: auto;
+}
