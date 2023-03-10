@@ -1,0 +1,22 @@
+footer {
+  padding: 2rem;
+  background-color: #00004e;
+  font-size: var(--body-font-size-s);
+  color: #ffffff;
+}
+
+footer .footer {
+  max-width: 1200px;
+  margin: auto;
+}
+footer .pre-footer {
+  max-width: 100%;
+  margin: auto;
+}
+.pre-footer {
+    text-align: center;
+    padding: 26px;
+}
+footer .footer p {
+  margin: 0;
+}
