@@ -354,7 +354,7 @@ export function decorateBlocks(main) {
  * @param {string} blockName name of the block
  * @param {*} content two dimensional array or string or object of content
  */
-export function (blockName, content) {
+export function buildBlock(blockName, content) {
   const table = Array.isArray(content) ? content : [[content]];
   const blockEl = document.createElement('div');
   // build image block nested div structure
@@ -591,16 +591,16 @@ export function loadFooter(footer) {
 }
 
 /**
- * Loads a block named 'prefooter' into prefooter
- * @param prefooter prefooter element
+ * Loads a block named 'footer' into footer
+ * @param footer footer element
  * @returns {Promise}
- *
-export function loadpreFooter(prefooter) {
-  const prefooterBlock = buildBlock('prefooter', '');
-  div.append(prefooterBlock);
-  decorateBlock(prefooterBlock);
-  return loadBlock(prefooterBlock);
-} */
+ */
+export function loadFooter(footer) {
+  const footerBlock = buildBlock('footer', '');
+  footer.append(footerBlock);
+  decorateBlock(footerBlock);
+  return loadBlock(footerBlock);
+}
 
 /**
  * Setup block utils.
