@@ -2,6 +2,7 @@ import {
   sampleRUM,
   buildBlock,
   loadHeader,
+  loadpreFooter,
   loadFooter,
   decorateButtons,
   decorateIcons,
