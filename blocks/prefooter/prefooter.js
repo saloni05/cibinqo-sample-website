@@ -2,7 +2,7 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
 
 /**
  * loads and decorates the footer
- * @param {Element} block The footer block element
+ * @param {Element} block The pre-footer block element
  */
 export default async function decorate(block) {
   const cfg = readBlockConfig(block);
