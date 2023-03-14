@@ -31,4 +31,11 @@ footer .columns >div >div:first-child {
 }
 footer ul {
     list-style: none;
+  padding-left: 0;
+}
+@media only screen and (max-width: 768px) {
+footer .columns >div >div:first-child {
+    border-right: 0;
+    border-bottom: 1px solid #ffffff;
+}
 }
