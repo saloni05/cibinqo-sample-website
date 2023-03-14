@@ -38,4 +38,7 @@ footer .columns >div >div:first-child {
     border-right: 0;
     border-bottom: 1px solid #ffffff;
 }
+  footer {
+    text-align: center;
+}
 }
