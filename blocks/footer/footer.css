@@ -12,7 +12,8 @@ footer .footer {
 
 footer .footer p {
   margin: 0;
- line-height: 30px;
+ line-height: 1.5;
+    margin-top: 12px;
 }
 footer .columns >div >div:first-child {
     border-right: 1px solid #ffffff;
