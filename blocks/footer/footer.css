@@ -4,23 +4,15 @@ footer {
   font-size: var(--body-font-size-s);
   color: #ffffff;
 }
-.footer.block p {
-    line-height: 30px;
-}
+
 footer .footer {
   max-width: 1200px;
   margin: auto;
 }
-footer .pre-footer {
-  max-width: 100%;
-  margin: auto;
-}
-.pre-footer {
-    text-align: center;
-    padding: 26px;
-}
+
 footer .footer p {
   margin: 0;
+ line-height: 30px;
 }
 footer .columns >div >div:first-child {
     border-right: 1px solid #ffffff;
@@ -34,4 +26,7 @@ footer .columns >div >div:first-child {
 .footer img {
     width: 90px;
     height: auto;
+}
+footer ul {
+    list-style: none;
 }
