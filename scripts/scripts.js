@@ -30,6 +30,21 @@ function buildHeroBlock(main) {
     main.prepend(section);
   }
 }
+/**
+ * Builds the patient access banner fragment
+ * @param {Element} main The container element
+ */
+function buildPatientAccessBannerFragment(main) {
+  if (document.querySelector('[data-prefooter]')) return;
+  const patientAccessPath = getMetadata('prefooter') || '/prefooter';
+  const fragment = buildBlock('fragment', [[
+    `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
+  ]]);
+  const section = document.createElement('div');
+  section.dataset.patientAccessBanner = true;
+  section.append(fragment);
+  main.append(section);
+}
 
 /**
  * Builds all synthetic blocks in a container element.
@@ -38,6 +53,7 @@ function buildHeroBlock(main) {
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildPatientAccessBannerFragment(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
