@@ -43,6 +43,7 @@ console.log('hello');
   const fragment = buildBlock('fragment', [[
     `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
   ]]);
+  console.log(fragment);
   const section = document.createElement('div');
   section.dataset.prefooter = true;
   section.append(fragment);
