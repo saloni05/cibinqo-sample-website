@@ -45,6 +45,7 @@ console.log('hello');
   ]]);
   console.log(fragment);
   const section = document.createElement('div');
+  console.log(section);
   section.dataset.prefooter = true;
   section.append(fragment);
   main.append(section);
