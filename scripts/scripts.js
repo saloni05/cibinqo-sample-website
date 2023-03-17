@@ -41,7 +41,7 @@ function buildPatientAccessBannerFragment(main) {
     `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
   ]]);
   const section = document.createElement('div');
-  section.dataset.patientAccessBanner = true;
+  section.dataset.prefooter = true;
   section.append(fragment);
   main.append(section);
 }
