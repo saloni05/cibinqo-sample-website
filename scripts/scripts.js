@@ -35,7 +35,7 @@ function buildHeroBlock(main) {
  * @param {Element} main The container element
  */
 function buildPatientAccessBannerFragment(main) {
-  if (document.querySelector('[data-prefooter]')) return;
+  if (document.querySelector('.prefooter-container')) return;
   const patientAccessPath = getMetadata('prefooter') || '/prefooter';
   const fragment = buildBlock('fragment', [[
     `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
