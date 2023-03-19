@@ -9,9 +9,8 @@ footer .footer {
   max-width: 1200px;
   margin: auto;
 }
-footer .pre-footer {
-  max-width: 100%;
-  margin: auto;
+.section.prefooter-container {
+    padding: 16px;
 }
 .prefooter{
 text-align: center;
