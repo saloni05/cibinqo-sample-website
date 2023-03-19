@@ -11,6 +11,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  getMetadata,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -30,6 +31,25 @@ function buildHeroBlock(main) {
     main.prepend(section);
   }
 }
+/**
+ * Builds the patient access banner fragment
+ * @param {Element} main The container element
+ */
+function buildPatientAccessBannerFragment(main) {
+  if (document.querySelector('.prefooter-container')) return;
+  const patientAccessPath = getMetadata('prefooter') || '/prefooter';
+console.log('hello');
+  console.log(patientAccessPath);
+  const fragment = buildBlock('fragment', [[
+    `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
+  ]]);
+  console.log(fragment);
+  const section = document.createElement('div');
+  console.log(section);
+  section.dataset.prefooter = true;
+  section.append(fragment);
+  main.append(section);
+}
 
 /**
  * Builds all synthetic blocks in a container element.
@@ -38,6 +58,7 @@ function buildHeroBlock(main) {
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
+    buildPatientAccessBannerFragment(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
@@ -102,7 +123,9 @@ async function loadLazy(doc) {
   if (hash && element) element.scrollIntoView();
 
   loadHeader(doc.querySelector('header'));
+ // loadpreFooter(doc.querySelector('prefooter'));
   loadFooter(doc.querySelector('footer'));
+  
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
