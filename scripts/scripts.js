@@ -38,14 +38,14 @@ function buildHeroBlock(main) {
 function buildPatientAccessBannerFragment(main) {
   if (document.querySelector('.prefooter-container')) return;
   const patientAccessPath = getMetadata('prefooter') || '/prefooter';
-console.log('hello');
-  console.log(patientAccessPath);
+//console.log('hello');
+//  console.log(patientAccessPath);
   const fragment = buildBlock('fragment', [[
     `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
   ]]);
-  console.log(fragment);
+ // console.log(fragment);
   const section = document.createElement('div');
-  console.log(section);
+ // console.log(section);
   section.dataset.prefooter = true;
   section.append(fragment);
   main.append(section);
