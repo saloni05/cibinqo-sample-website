@@ -64,6 +64,25 @@ function buildAutoBlocks(main) {
     console.error('Auto Blocking failed', error);
   }
 }
+/**
+ * Builds the patient access banner fragment
+ * @param {Element} main The container element
+ */
+function buildIndicationFragment(main) {
+  if (document.querySelector('[data-indication]')) return;
+  const patientAccessPath = getMetadata('indication') || '/indication';
+console.log('hello');
+ console.log(patientAccessPath);
+  const fragment = buildBlock('fragment', [[
+    `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
+  ]]);
+  console.log(fragment);
+  const section = document.createElement('div');
+ console.log(section);
+  section.dataset.indication = true;
+  section.append(fragment);
+  main.append(section);
+}
 
 /**
  * Decorates the main element.
