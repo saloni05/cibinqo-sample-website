@@ -69,6 +69,7 @@ function buildAutoBlocks(main) {
  * @param {Element} main The container element
  */
 function buildIndicationFragment(main) {
+    const body = document.querySelector('body');
   if (document.querySelector('[data-indication]')) return;
   const patientAccessPath = getMetadata('indication') || '/indication';
 console.log('hello');
