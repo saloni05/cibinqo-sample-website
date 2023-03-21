@@ -2,6 +2,7 @@ import {
   sampleRUM,
   buildBlock,
   loadHeader,
+  // loadAbHeader,
   loadFooter,
   decorateButtons,
   decorateIcons,
@@ -17,10 +18,6 @@ import {
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
 
-/**
- * Builds hero block and prepends to main in a new section.
- * @param {Element} main The container element
- */
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
   const picture = main.querySelector('picture');
@@ -32,20 +29,16 @@ function buildHeroBlock(main) {
   }
 }
 /**
- * Builds the patient access banner fragment
+ * Builds the Prefooter fragment
  * @param {Element} main The container element
  */
-function buildPatientAccessBannerFragment(main) {
+function buildPreFooterFragment(main) {
   if (document.querySelector('[data-prefooter]')) return;
-  const patientAccessPath = getMetadata('prefooter') || '/prefooter';
-console.log('hello');
- console.log(patientAccessPath);
+  const preFooter = getMetadata('prefooter') || '/prefooter';
   const fragment = buildBlock('fragment', [[
-    `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
+    `<a href="${preFooter}">${window.location.origin}${preFooter}</a>`,
   ]]);
-  console.log(fragment);
   const section = document.createElement('div');
- console.log(section);
   section.dataset.prefooter = true;
   section.append(fragment);
   main.append(section);
@@ -58,31 +51,11 @@ console.log('hello');
 function buildAutoBlocks(main) {
   try {
     buildHeroBlock(main);
-    buildPatientAccessBannerFragment(main);
+    buildPreFooterFragment(main);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Auto Blocking failed', error);
   }
-}
-/**
- * Builds the patient access banner fragment
- * @param {Element} main The container element
- */
-function buildIndicationFragment(main) {
-    const body = document.querySelector('body');
-  if (document.querySelector('[data-indication]')) return;
-  const patientAccessPath = getMetadata('indication') || '/indication';
-console.log('hello');
- console.log(patientAccessPath);
-  const fragment = buildBlock('fragment', [[
-    `<a href="${patientAccessPath}">${window.location.origin}${patientAccessPath}</a>`,
-  ]]);
-  console.log(fragment);
-  const section = document.createElement('div');
- console.log(section);
-  section.dataset.indication = true;
-  section.append(fragment);
-  main.append(section);
 }
 
 /**
@@ -97,12 +70,10 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-  buildIndicationFragment(main);
 }
 
 /**
- * Loads everything needed to get to LCP.
- * @param {Element} doc The container element
+ * loads everything needed to get to LCP.
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
@@ -132,8 +103,7 @@ export function addFavIcon(href) {
 }
 
 /**
- * Loads everything that doesn't need to be delayed.
- * @param {Element} doc The container element
+ * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
   const main = doc.querySelector('main');
@@ -143,10 +113,9 @@ async function loadLazy(doc) {
   const element = hash ? doc.getElementById(hash.substring(1)) : false;
   if (hash && element) element.scrollIntoView();
 
+  // loadAbHeader(doc.querySelector('header'));
   loadHeader(doc.querySelector('header'));
- // loadpreFooter(doc.querySelector('prefooter'));
   loadFooter(doc.querySelector('footer'));
-  
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   addFavIcon(`${window.hlx.codeBasePath}/styles/favicon.svg`);
@@ -156,8 +125,8 @@ async function loadLazy(doc) {
 }
 
 /**
- * Loads everything that happens a lot later,
- * without impacting the user experience.
+ * loads everything that happens a lot later, without impacting
+ * the user experience.
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
